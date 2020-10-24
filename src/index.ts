@@ -1,27 +1,25 @@
-import * as o3 from "oasis-engine";
-import "regenerator-runtime";
+import 'regenerator-runtime';
 
-const engine = new o3.WebGLEngine("canvas");
-engine.canvas.resizeByClientSize();
-const root = engine.sceneManager.activeScene.createRootEntity();
+import {
+  WebGLEngine,
+  Entity,
+  SystemInfo,
+} from 'oasis-engine';
 
-const cameraEntity = root.createChild("camera");
-const camera = cameraEntity.addComponent(o3.Camera);
-camera.backgroundColor = new o3.Vector4(0.2, 0.2, 0.2, 1);
+import init from './game/index';
 
-function wait() {
-	return new Promise((resolve) => {
-    setTimeout(()=>{
-      resolve()
-    }, 3000)
-  });
-}
+// 创建引擎
+const engine = new WebGLEngine('oasis-demo');
+// 设置引擎的 canvas 画布大小
+engine.canvas.width = window.innerWidth * SystemInfo.devicePixelRatio;
+engine.canvas.height = window.innerHeight * SystemInfo.devicePixelRatio;
+// 创建一个 Entity 作为 RootEntity
+const rootEntity = new Entity();
+// 当前场景
+const scene = engine.sceneManager.activeScene;
+scene.addRootEntity(rootEntity);
 
-async function test(abc: string) {
-  await wait();
-  console.log(abc)
-}
-
-test("abc");
-
-engine.run();
+// 初始化好后启动引擎主循环
+init(engine, rootEntity).then(() => {
+  engine.run();
+});
