@@ -33,7 +33,7 @@ export default class Coin extends Script {
     this._goldCoin = entity.findByName('goldCoin');
     this._bubble = entity.findByName('bubble');
 
-    // 粒子 时序问题
+    // 获取粒子系统组件
     setTimeout(() => {
       const particleEntity1 = entity.findByName('particle1');
       this._particle1 = particleEntity1.getComponent(GPUParticleSystem);
