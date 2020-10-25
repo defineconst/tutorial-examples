@@ -4,6 +4,7 @@ import {
   WebGLEngine,
   Entity,
   SystemInfo,
+  Event,
 } from 'oasis-engine';
 
 import init from './game/index';
@@ -18,6 +19,12 @@ const rootEntity = new Entity();
 // 当前场景
 const scene = engine.sceneManager.activeScene;
 scene.addRootEntity(rootEntity);
+
+// 添加和 web 的交互
+const startEvent = new Event('game_play');
+document.getElementById('ship-start').onclick = (e) => {
+  engine.trigger(startEvent);
+}
 
 // 初始化好后启动引擎主循环
 init(engine, rootEntity).then(() => {

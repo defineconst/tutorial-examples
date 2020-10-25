@@ -5,13 +5,13 @@ import {
   Camera,
   SkyBox,
   DirectLight,
-  Vector3,
   AssetType,
   Engine
 } from 'oasis-engine';
 
 import initShip from './ship/index';
 import initCoin from './coin/index';
+import GameController from './gameController';
 
 // 添加相机
 function addCamera(parentEntity: Entity) {
@@ -58,8 +58,13 @@ async function addSkyBox(engine: Engine, parentEntity: Entity) {
   skyBoxCmp.skyBoxMap = cubeTexture;
 }
 
-export default async function init (engine, rootEntity) {
+export default async function init (engine: Engine, rootEntity: Entity) {
   addCamera(rootEntity);
   addDirectLight(rootEntity);
   await addSkyBox(engine, rootEntity);
+  await initShip(engine, rootEntity);
+  await initCoin(engine, rootEntity);
+
+  // 给 rootEntity 添加一个游戏控制脚本，用来和 web 交互
+  rootEntity.addComponent(GameController);
 }
