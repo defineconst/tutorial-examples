@@ -15,7 +15,7 @@ const engine = new WebGLEngine('oasis-demo');
 engine.canvas.width = window.innerWidth * SystemInfo.devicePixelRatio;
 engine.canvas.height = window.innerHeight * SystemInfo.devicePixelRatio;
 // 创建一个 Entity 作为 RootEntity
-const rootEntity = new Entity();
+const rootEntity = new Entity('root', engine);
 // 当前场景
 const scene = engine.sceneManager.activeScene;
 scene.addRootEntity(rootEntity);
