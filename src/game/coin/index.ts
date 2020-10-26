@@ -19,7 +19,7 @@ const COUNT = 8;
 async function addCoinModel(engine: Engine, entity: Entity) {
   // 加载模型
   const gltf = await engine.resourceManager.load('https://gw.alipayobjects.com/os/OasisHub/71919cef-d58e-41c2-b5d9-5277ec668fc0/150000189/0.5631354547806537.gltf');
-  entity.addChild(gltf.defaultSceneRoot);
+  entity.addChild(gltf.defaultSceneRoot.clone());
   // 获取 mesh
   const mesh = gltf.defaultSceneRoot.findByName('coin').getComponent(MeshRenderer);
   // 获取材质
