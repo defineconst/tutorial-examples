@@ -9,7 +9,7 @@ import {
   Vector3
 } from 'oasis-engine';
 
-import Coins from './coins';
+import CoinController from './coins';
 import Coin from './coin';
 import CoinRotate from './coinRotate';
 
@@ -101,5 +101,5 @@ export default async function init(engine: Engine, rootEntity: Entity) {
   }
 
   // 给 coins 实体添加 coins.ts 脚本，统一管理所有金币
-  coins.addComponent(Coins);
+  coins.addComponent(CoinController);
 }

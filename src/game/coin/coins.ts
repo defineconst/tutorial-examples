@@ -9,7 +9,7 @@ const coinStartEvent = new Event('coin_start');
 /**
  * 使用时再重写，性能可以得到提升
  */
-export default class Coins extends Script {
+export default class CoinController extends Script {
   /**
    * 第一次触发可用状态时调用,只调用一次。
    */

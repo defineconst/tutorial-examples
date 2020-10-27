@@ -12,7 +12,7 @@ const coinEvent = new Event('colliderCoin');
 /**
  * 使用时再重写，性能可以得到提升
  */
-export default class Ship extends Script {
+export default class ShipController extends Script {
   /**
    * 第一次触发可用状态时调用,只调用一次。
    */

@@ -22,7 +22,7 @@
     }
   },
   "dependencies": {
-    "oasis-engine": "0.0.9",
+    "oasis-engine": "0.1.0",
     "regenerator-runtime": "^0.13.7"
   }
 }

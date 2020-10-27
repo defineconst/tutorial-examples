@@ -10,7 +10,7 @@ import {
 } from 'oasis-engine';
 
 import ShipAni from './shipAni';
-import Ship from './ship';
+import ShipController from './ship';
 
 // 给 entity 实体添加飞船模型
 async function addShip(engine: Engine, entity: Entity) {
@@ -90,8 +90,8 @@ export default async function init(engine: Engine, rootEntity: Entity) {
   const body = shipEntity.createChild('body');
   // 给 body 添加 shipAni 脚本，用来控制飞船动画
   body.addComponent(ShipAni);
-  // 给 body 添加 ship 脚本，用来处理飞船碰撞逻辑
-  body.addComponent(Ship);
+  // 给 body 添加 ShipController 脚本，用来处理飞船碰撞逻辑
+  body.addComponent(ShipController);
   // 飞船的船体
   const shell = body.createChild('shell');
   // 给 shell 添加飞船模型

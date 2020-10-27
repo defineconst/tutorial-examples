@@ -17,7 +17,7 @@ import {
   FreeControl
 } from '@oasis-engine/controls';
 
-import Ship from './ship';
+import ShipController from './ship';
 import Coin from './coin';
 
 // 创建引擎
@@ -84,7 +84,7 @@ async function showGLTF() {
   material.baseColorTexture = baseColorTexture;
 
   // 给飞船添加 Ship 脚本组件
-  shipEntity.addComponent(Ship);
+  shipEntity.addComponent(ShipController);
 }
 
 // 显示天空盒
